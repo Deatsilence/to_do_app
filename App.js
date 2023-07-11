@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
+
+// My imports
+import styles from "./src/styles/styles_of_app";
+import TodoList from "./src/components/TodoList";
+import TodoHeader from "./src/components/TodoHeader";
+
+// import store
+import store from "./src/redux/store/storeOfApp";
+
+// import Provider
+import { Provider } from "react-redux";
 
 export default function App() {
+  const RootApp = () => {
+    return (
+      <SafeAreaView>
+        <TodoHeader />
+        <TodoList />
+      </SafeAreaView>
+    );
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <RootApp />
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
