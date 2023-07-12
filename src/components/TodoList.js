@@ -1,5 +1,6 @@
 import {
   FlatList,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -15,18 +16,11 @@ import { deleteTask } from "../redux/store/taskSlice";
 
 const TodoList = () => {
   const dispatch = useDispatch();
+
+  // tasks dilimini Redux store'dan alır
   const todos = useSelector((state) => state.tasks);
 
-  const data = [
-    {
-      id: 1,
-      title: "Learn React Native",
-    },
-    {
-      id: 2,
-      title: "Learn Redux Toolkit",
-    },
-  ];
+  const data = [];
 
   const itemDelete = (id) => {
     dispatch(deleteTask({ id: id }));
@@ -49,11 +43,13 @@ const TodoList = () => {
   };
 
   return (
-    <View>
+    <View style={{ height: 450 }}>
       <FlatList
         data={todos}
         renderItem={renderItem}
+        // Her görevin benzersiz bir anahtarı olarak `id` kullanılır
         keyExtractor={(item) => item.id}
+        contentContainerStyle={{ flexGrow: 1 }}
       ></FlatList>
     </View>
   );

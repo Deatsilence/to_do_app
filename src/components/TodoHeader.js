@@ -30,12 +30,14 @@ const TodoHeader = () => {
         task: todo,
       })
     );
+    // Görev eklemek için addTask fonksiyonunu dispatch eder
     setTodo("");
   };
+  // Kullanıcının girdiği task'i tutmak için state kullanılır
   const [todo, setTodo] = useState("");
 
   return (
-    <View>
+    <View style={{ height: 210 }}>
       <Text style={styles.appTitle}>Todo list</Text>
 
       <View style={styles.centerContent}>

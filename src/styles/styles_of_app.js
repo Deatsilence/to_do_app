@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#E8EAED",
   },
+
+  // [TodoHeader]
+
   appTitle: {
     fontSize: 20,
     fontWeight: "bold",
@@ -50,6 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+
   title: {
     fontSize: 28,
   },
