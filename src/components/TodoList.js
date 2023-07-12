@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   ScrollView,
   StyleSheet,
@@ -33,7 +34,10 @@ const TodoList = () => {
         <TouchableOpacity
           style={styles.deleteButton}
           onPress={() => {
-            itemDelete(item.id);
+            Alert.alert("Warning", "Are you sure to delete ?", [
+              { text: "Yes", onPress: () => itemDelete(item.id) },
+              { text: "No", onPress: () => null },
+            ]);
           }}
         >
           <Feather name="trash-2" size={18} color="red" />
