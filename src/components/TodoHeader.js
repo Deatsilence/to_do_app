@@ -18,7 +18,12 @@ import { useDispatch } from "react-redux";
 import { addTask } from "../redux/store/taskSlice";
 
 const TodoHeader = () => {
+  // When we want to notify the Redux store of an action,
+  // such as adding or deleting a task,
+  // we use the dispatch function.
   const dispatch = useDispatch();
+
+  // This function is called when the user presses the add button.
   const onSubmitTask = () => {
     if (todo.trim().length === 0) {
       Alert.alert("Please enter a task");
@@ -30,10 +35,10 @@ const TodoHeader = () => {
         task: todo,
       })
     );
-    // Görev eklemek için addTask fonksiyonunu dispatch eder
+    // Clean the input
     setTodo("");
   };
-  // Kullanıcının girdiği task'i tutmak için state kullanılır
+  // State is used to hold the task entered by the user
   const [todo, setTodo] = useState("");
 
   return (

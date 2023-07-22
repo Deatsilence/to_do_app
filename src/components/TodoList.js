@@ -16,12 +16,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteTask } from "../redux/store/taskSlice";
 
 const TodoList = () => {
+  // When we want to notify the Redux store of an action,
+  // such as adding or deleting a task,
+  // we use the dispatch function.
   const dispatch = useDispatch();
 
-  // tasks dilimini Redux store'dan alır
+  // takes slice of tasks from Redux store
   const todos = useSelector((state) => state.tasks);
-
-  const data = [];
 
   const itemDelete = (id) => {
     dispatch(deleteTask({ id: id }));
@@ -51,7 +52,7 @@ const TodoList = () => {
       <FlatList
         data={todos}
         renderItem={renderItem}
-        // Her görevin benzersiz bir anahtarı olarak `id` kullanılır
+        // Each task uses `id` as a unique key
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ flexGrow: 1 }}
       ></FlatList>

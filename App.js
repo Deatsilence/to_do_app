@@ -30,6 +30,7 @@ export default function App() {
   };
 
   return (
+    // Connects the provider and the store to the app
     <Provider store={store}>
       <RootApp />
     </Provider>
